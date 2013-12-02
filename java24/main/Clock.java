@@ -26,18 +26,11 @@ public class Clock {
 	public String getGreeting() {
 		String greeting = "Good " + getPeriod();
 		
+		greeting += "It's " + getTime();
 
-			
-		greeting += "It's ";
-		if (minute != 0) {
-			greeting += minute + " ";
-			greeting += (minute != 1) ? "minutes" : "minute";
-			greeting += " past ";
-		}
 		
-		greeting += ( hour > 12) ? (hour - 12) : hour;
-		greeting += " o'clock on ";
-		greeting += this.showMonth() + " " + day + ", " + year + ".";
+		
+		greeting += " " + this.showMonth() + " " + day + ", " + year + ".";
 		
 		return greeting;
 	}
@@ -56,5 +49,19 @@ public class Clock {
 		} else {
 			return "evening.\n";
 		}
+	}
+	
+	private String getTime() {
+		String greeting = "";
+		
+		if (minute != 0) {
+			greeting += minute + " ";
+			greeting += (minute != 1) ? "minutes" : "minute";
+			greeting += " past ";
+		}
+		greeting += ( hour > 12) ? (hour - 12) : hour;
+		greeting += " o'clock";
+		
+		return greeting;
 	}
 }
