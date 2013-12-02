@@ -24,19 +24,9 @@ public class Clock {
 	}
 	
 	public String getGreeting() {
-		return formatGreeting();
-	}
-	
-	protected String formatGreeting() {
-		String greeting = "Good ";
+		String greeting = "Good " + getPeriod();
 		
-		if (hour < 12) {
-			greeting += "morning. \n";
-		} else if (hour < 17) {
-			greeting += "afternoon.\n";
-		} else {
-			greeting += "evening.\n";
-		}
+
 			
 		greeting += "It's ";
 		if (minute != 0) {
@@ -56,5 +46,15 @@ public class Clock {
 		String months[] = {"January", "February", "March", "April", "May", "June", "July",
 		                   "August", "September", "October", "November", "December"};
 		return months[this.month];
+	}
+	
+	private String getPeriod() {
+		if (hour < 12) {
+			return "morning. \n";
+		} else if (hour < 17) {
+			return "afternoon.\n";
+		} else {
+			return "evening.\n";
+		}
 	}
 }
