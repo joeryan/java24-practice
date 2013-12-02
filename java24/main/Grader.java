@@ -3,8 +3,10 @@ package java24.main;
 public class Grader {
 	private int grade;
 	
-	public Grader(int grade) {
-		this.grade = grade;
+	public Grader(int grade) throws IllegalArgumentException {
+		if (grade >= 0 && grade <= 100) {
+			this.grade = grade;
+		} else throw new IllegalArgumentException();
 	}
 	
 	public char getGrade() {
