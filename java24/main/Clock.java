@@ -19,28 +19,37 @@ public class Clock {
 	}
 		
 	public static void main(String[] args) {
-		Clock myClock = new Clock(Calendar.getInstance());
-		myClock.displayGreeting();
+		Clock myClock = new Clock();
+		System.out.println(myClock.getGreeting());
 	}
 	
-	protected void displayGreeting() {
+	public String getGreeting() {
+		return formatGreeting();
+	}
+	
+	protected String formatGreeting() {
+		String greeting = "Good ";
+		
 		if (hour < 12) {
-			System.out.println("Good morning. \n");
+			greeting += "morning. \n";
 		} else if (hour < 17) {
-			System.out.println("Good afternoon.\n");
+			greeting += "afternoon.\n";
 		} else {
-			System.out.println("Good evening.\n");
+			greeting += "evening.\n";
 		}
 			
-		System.out.print("It's ");
+		greeting += "It's ";
 		if (minute != 0) {
-			System.out.print(minute + " ");
-			System.out.print( (minute != 1) ? "minutes" : "minute");
-			System.out.print(" past ");
+			greeting += minute + " ";
+			greeting += (minute != 1) ? "minutes" : "minute";
+			greeting += " past ";
 		}
-		System.out.print ( ( hour > 12) ? (hour - 12) : hour);
-		System.out.print( " o'clock on ");
-		System.out.println(this.showMonth() + " " + day + ", " + year + ".");
+		
+		greeting += ( hour > 12) ? (hour - 12) : hour;
+		greeting += " o'clock on ";
+		greeting += this.showMonth() + " " + day + ", " + year + ".";
+		
+		return greeting;
 	}
 	
 	private String showMonth() {
