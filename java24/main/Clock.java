@@ -25,20 +25,16 @@ public class Clock {
 	
 	public String getGreeting() {
 		String greeting = "Good " + getPeriod();
-		
 		greeting += "It's " + getTime();
-
-		
-		
-		greeting += " " + this.showMonth() + " " + day + ", " + year + ".";
+		greeting += " " + showDate();
 		
 		return greeting;
 	}
 	
-	private String showMonth() {
+	private String showDate() {
 		String months[] = {"January", "February", "March", "April", "May", "June", "July",
 		                   "August", "September", "October", "November", "December"};
-		return months[this.month];
+		return months[month] + " " + day + ", " + year + ".";
 	}
 	
 	private String getPeriod() {
