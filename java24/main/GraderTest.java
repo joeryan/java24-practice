@@ -7,8 +7,9 @@ import org.junit.Test;
 public class GraderTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void test_getGrade() {
+		Grader myGrade = new Grader(90);
+		assertEquals('A', myGrade.getGrade());
 	}
 
 }

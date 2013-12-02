@@ -7,7 +7,7 @@ public class Grader {
 		this.grade = grade;
 	}
 	
-	public String getGrade() {
+	public char getGrade() {
 		if (grade >= 90) {
 			return 'A';
 		} else if (grade >= 80) {
