@@ -3,9 +3,12 @@ package java24.main;
 import java.util.*;
 
 public class Benchmark {
-	public static void main(String[] args) {
+	public static int getIterations(int minutes) {
 		Calendar start = Calendar.getInstance();
-		start.roll(Calendar.MINUTE, true);
+		for (int i = 0;i < minutes; i++) {
+			start.roll(Calendar.MINUTE, true);
+		}
+		
 		int nextMinute = start.get(Calendar.MINUTE);
 		int nextSecond = start.get(Calendar.SECOND);
 		int index = 0;
@@ -20,6 +23,14 @@ public class Benchmark {
 			}
 			index++;
 		}
-		System.out.println(index + " loops in one minute.");
+		return index;
+	}
+	
+	public static void main(String[] args) {
+		int index;
+		int minutesToRun = 2;
+		
+		index = getIterations(minutesToRun);
+		System.out.println(index + " loops in " + minutesToRun + ( (minutesToRun > 1) ? " minutes." : " minute.") );
 	}
 }
