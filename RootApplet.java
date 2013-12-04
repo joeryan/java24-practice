@@ -3,6 +3,10 @@ import java.awt.*;
 
 
 public class RootApplet extends javax.swing.JApplet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2302455084471841782L;
 	int number;
 	
 	public void init() {
