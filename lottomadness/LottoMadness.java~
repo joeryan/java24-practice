@@ -1,0 +1,12 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class LottoMadness extends JFrame {
+    
+    // set up for row 1
+    JPanel row1 = new JPanel();
+    ButtonGroup option = new ButtonGroup();
+    JCheckBox quickpick = new JCheckBox("Quick Pick", false);
+    JCheckBox personal = new JCheckBox("Personal", true);
+    // set up for row 2
+    
