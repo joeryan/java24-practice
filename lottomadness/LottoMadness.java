@@ -53,6 +53,11 @@ public class LottoMadness extends JFrame {
         row2.setLayout(layout2);
         row2.add(numbersLabel);
         for (int i = 0; i < 6; i++) {
+            numbers[i] = new JTextField();
+            row2.add(numbers[i]);
+        }
+        row2.add(winnersLabel);
+        for (int i = 0; i < 6; i++) {
             winners[i] = new JTextField();
             winners[i].setEditable(false);
             row2.add(winners[i]);
