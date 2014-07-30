@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class LottoMadness extends JFrame {
+    LottoEvent lotto = new LottoEvent(this);
     
     // set up for row 1
     JPanel row1 = new JPanel();
@@ -36,6 +37,14 @@ public class LottoMadness extends JFrame {
     
     public LottoMadness() {
         super("Lotto Madness");
+                
+        quickpick.addItemListener(lotto);
+        personal.addItemListener(lotto);
+        stop.addActionListener(lotto);
+        play.addActionListener(lotto);
+        reset.addActionListener(lotto);
+        
+
         setSize(850, 270);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GridLayout layout = new GridLayout(5, 1, 10, 10);
