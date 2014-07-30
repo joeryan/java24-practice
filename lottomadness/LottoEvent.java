@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class LottoEvent implements ItemListener, ActionListener, Runnable {
-    
+    static int MAX_NUM = 50;
     LottoMadness gui;
     Thread playing;
     
@@ -22,13 +22,13 @@ public class LottoEvent implements ItemListener, ActionListener, Runnable {
     }
     
     void startPlaying() {
-        playing = new Thread(this);
-        playing.start();
-        gui.play.setEnabled(false);
-        gui.stop.setEnabled(true);
-        gui.reset.setEnabled(false);
-        gui.quickpick.setEnabled(false);
-        gui.personal.setEnabled(false);
+            playing = new Thread(this);
+            playing.start();
+            gui.play.setEnabled(false);
+            gui.stop.setEnabled(true);
+            gui.reset.setEnabled(false);
+            gui.quickpick.setEnabled(false);
+            gui.personal.setEnabled(false);
     }
     
     void stopPlaying() {
@@ -60,7 +60,7 @@ public class LottoEvent implements ItemListener, ActionListener, Runnable {
             for (int i = 0; i < 6; i++) {
                 int pick;
                 do {
-                    pick = (int) Math.floor(Math.random() * 50 + 1);
+                    pick = (int) Math.floor(Math.random() * MAX_NUM + 1);
                 } while (numberGone(pick, gui.numbers, i));
                 gui.numbers[i].setText("" + pick);
             }
@@ -108,7 +108,7 @@ public class LottoEvent implements ItemListener, ActionListener, Runnable {
             for (int i = 0; i < 6; i++) {
                 int ball;
                 do {
-                    ball = (int) Math.floor(Math.random() * 50 + 1);
+                    ball = (int) Math.floor(Math.random() * MAX_NUM + 1);
                 } while (numberGone(ball, gui.winners, i));
                 gui.winners[i].setText("" + ball);
                 if (matchedOne(gui.winners[i], gui.numbers)) {
