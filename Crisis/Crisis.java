@@ -2,16 +2,17 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Crisis extends JFrame {
+    CrisisEvent theCrisis = new CrisisEvent(this);
    // set up panic row
    JPanel panicRow = new JPanel();
-   JButton panicButton = new JButton("Panic!");
-   JButton dontPanicButton = new JButton("Don't Panic!");
+   JButton panicButton = new JButton("Panic");
+   JButton dontPanicButton = new JButton("Don't Panic");
    
    // set up blame row
    JPanel blameRow = new JPanel();
    JButton blameButton = new JButton("Blame Others");
    JButton mediaButton = new JButton("Notify the Media");
-   JButton saveButton = new JButton("Save Yourself!");
+   JButton saveButton = new JButton("Save Yourself");
    
    public Crisis() {
        super("Crisis");
@@ -33,6 +34,14 @@ public class Crisis extends JFrame {
        blameRow.add(saveButton);
        add(blameRow);
        setVisible(true);
+       
+       // add listeners to act on
+       panicButton.addActionListener(theCrisis);
+       dontPanicButton.addActionListener(theCrisis);
+       blameButton.addActionListener(theCrisis);
+       mediaButton.addActionListener(theCrisis);
+       saveButton.addActionListener(theCrisis);
+                                                 
    }
    
    public static void main(String[] args) {
